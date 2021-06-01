@@ -1,42 +1,44 @@
 ###############################################################################
 from model import Pedido
-from view import View
+from view import view
 ###############################################################################
 
 
 class Controle:
     def inicio(self):
-        escolhido = View.inicio()
+        escolhido = view.inicio()
         while escolhido != 5:
             # Inserir pedido
             if escolhido == 1:
-                valores = View.coletaDadosPedido()
+                valores = view.coletaDadosPedido()
                 dados = Pedido.criaPedido(valores)
                 status = Pedido.cadastraPedido(dados)
                 ###
-                View.imprimeStatus(status)
-                escolhido = View.inicio()
+                view.imprimeStatus(status)
+                escolhido = view.inicio()
             # Remover pedido
             elif escolhido == 2:
-                orderid = View.coletaId()
+                orderid = view.coletaId()
                 status = Pedido.deletaPedido(orderid)
                 ###
-                View.imprimeStatus(status)
-                escolhido = View.inicio()
+                view.imprimeStatus(status)
+                escolhido = view.inicio()
             # Buscar pedido
             elif escolhido == 3:
-                orderid = View.coletaId()
+                orderid = view.coletaId()
                 registro = Pedido.consultaPedido(orderid)
                 ###
-                View.imprimePedido(registro)
-                escolhido = View.inicio()
+                view.imprimePedido(registro)
+                escolhido = view.inicio()
             # Alterar pedido
             elif escolhido == 4:
-                valores = View.coletaDadoAtualizar()
+                valores = view.coletaDadoAtualizar()
                 status = Pedido.atualizaPedido(valores)
                 ###
-                View.imprimeStatus(status)
-                escolhido = View.inicio()
-                controller = Controle()
-                controller.inicio()
+                view.imprimeStatus(status)
+                escolhido = view.inicio()
+
+
+controller = Controle()
+controller.inicio()
 ###############################################################################

@@ -10,7 +10,7 @@ class config():
     ###############################################################################
 
     def setParametros(self):
-        self.dadosconexao = "host='localhost' dbname='Northwind' user='postgres' password='postgres'"
+        self.dadosconexao = "host='localhost' dbname='Northwind' user='postgres' password='frankenstrike1212'"
         return self
     ###############################################################################
 
@@ -27,7 +27,7 @@ class config():
         finally:
             if conn is not None:
                 conn.close()
-            return 'transação sucedida'
+            return 'transição bem-sucedida'
     ###############################################################################
 
     def consultaBD(self, stringSQL, valores):
